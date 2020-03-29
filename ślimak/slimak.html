@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style>
+            .snail {
+                font-family: Courier;
+                letter-spacing: 9px;
+                font-size: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var n;
+            do {
+                n = prompt("podaj liczbe segmentów");
+            } while (n<=0 || isNaN(n));
+            var Smax=n*4;
+            document.write("<p class='snail'>");
+            for(var w=1;w<=Smax;w++) {
+                for(var k=1;k<=Smax;k++) {
+                    if(w<=Smax/2) {
+                        if(w%2!=0) {
+                            if(k%2==0 || (k>w && k<=Smax-w+1)) document.write("#");
+                            else document.write("&nbsp");
+                        }
+                        else {
+                            if(k%2==0 && (k<=w || k>=Smax-w+1)) document.write("#");
+                            else document.write("&nbsp");
+                        }
+                    }
+                    else {
+                        if(w%2!=0) {
+                            if(k%2==0 && (k<Smax-w || k>w)) document.write("#");
+                            else document.write("&nbsp");
+                        }
+                        else {
+                            if(k%2==0 || (k>=Smax-w && k<=w)) document.write("#");
+                            else document.write("&nbsp");
+                        }
+                    }
+                }
+                document.write("<br>");
+            }
+            document.write("</p>");
+        </script>
+    </body>
+</html>

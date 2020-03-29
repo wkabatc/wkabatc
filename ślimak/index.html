@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<title>Ślimak...</title>
+</head>
+<body>
+<form>
+Wprowadź liczbę segmentów: <input type="number" min="1" id="seg" value="1" step="1"/>
+</br>
+<input type="button" value="Generuj" onclick="main()"/>
+</form>
+</body>
+<script>
+function main() {
+var n=document.getElementById("seg").value;
+if(n<=0 || isNaN(n)) {
+alert("Liczba segmentów musi być większa od zera!");
+document.getElementById("seg").value=1;
+}
+else {
+var Smax=n*4;
+document.write("<p class=\"snail\" style=\"font-family: Courier;letter-spacing:9px;font-size:100%;\">");
+for (var w=1; w<=Smax; w++){
+for (var k=1; k<=Smax; k++){
+if(w<=(Smax/2)){
+if(w%2!=0){
+if(k%2==0 || (k>w && k<=Smax-w+1))
+document.write("#");
+else
+document.write("&nbsp");
+}
+else {
+if(k%2==0 && (k<=w || k>=Smax-w+1))
+document.write("#");
+else 
+document.write("&nbsp");
+}
+}
+//////////////////////		
+else {
+if(w%2!=0) {
+if(k%2==0 && (k<Smax-w || k>w)) 
+document.write("#");
+else 
+document.write("&nbsp");
+}
+else {
+if(k%2==0 || (k>=Smax-w && k<=w)) 
+document.write("#");
+else 
+document.write("&nbsp");
+}
+}
+}
+document.write("</br>");
+}
+document.write("</p>")
+}
+}
+</script>
+</html>
