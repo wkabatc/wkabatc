@@ -1,0 +1,245 @@
+body {background-size: 100%;
+background-repeat: no-repeat;
+background-position: center; 
+margin:0%;
+overflow:hidden;
+}
+
+.belka {margin-left: auto;
+margin-right: auto;
+width: 80%;
+height: 15%;
+text-align:center;
+}
+
+.menu1 {position:relative;
+top:-100%;
+float:left;
+width:45%;
+height:100%;
+background-color: #000;
+text-align:center;
+opacity:0.9;
+}
+
+.lista1 {
+margin:0;
+padding:13% 0% 0% 25%;
+list-style-type:none;
+}
+
+.lista1 a {
+	color: #fff;
+text-decoration:none;
+display:block;
+letter-spacing:0.6em;
+font-family: 'Ropa Sans', sans-serif;}
+
+.sup {text-align:center;
+	float:left;
+width:51%;
+border-right:1px solid #fff;
+height:13%;
+}
+
+
+.sup > a:hover {
+color: #99CCCC;
+}
+
+.egz {height:13%;
+	text-align:center;
+	float:left;
+width:46%;
+}
+
+.egz> a:hover {
+color: #99CCCC;
+}
+
+ol > li > ul {list-style-type:none;
+padding:0;
+margin:0;
+display:none;
+
+}
+
+
+ol > li:hover > ul {
+	display:block;
+}
+
+#kolor {color:#000;
+text-align:center;
+letter-spacing:0.4em}
+
+ol > li > ul > li {font-family: 'Ropa Sans', sans-serif;
+	background-color:#FFF;
+position:relative;
+top:15px;
+width:100%;
+border-right:1px solid #000;
+border-left:1px solid #000;
+border-top:1px dotted #000;
+letter-spacing:1em;
+}
+
+ol > li > ul > li:first-child {border-top:none}
+
+
+ol > li > ul > li:hover > #kolor {color: #fff;
+background-color: #000;
+}
+
+
+.lista2 {margin:0;
+padding:13% 25% 0% 0% ;
+list-style-type:none;
+height:100%;
+}
+
+.lista2 a {color: #fff;
+text-decoration:none;
+display:block;
+letter-spacing:0.6em;
+font-family: 'Ropa Sans', sans-serif;}
+
+.lista2 > li > ul > li {font-family: 'Ropa Sans', sans-serif;
+	background-color:#FFF;
+position:relative;
+top:15px;
+width:100%;
+border-right:1px solid #000;
+border-left:1px solid #000;
+}
+
+
+.lista2 > li > ul > li:hover > #kolor {color: #fff;
+background-color: #000;
+}
+
+
+.hist {text-align:center;
+height: 13%;
+	float:right;
+width:43%;
+border-left:1px solid #fff;}
+
+.hist > a:hover {
+color: #99CCCC}
+
+.ciek {text-align:center;
+height: 13%;
+	float:right;
+width:53%;}
+
+.ciek > a:hover {
+color: #99CCCC}
+
+
+.menu2 {position:relative;
+top:-100%;
+float:right;
+width:45%;
+height:100%;
+background-color: #000;
+text-align:center;
+opacity:0.9;}
+
+.logo {margin-left: auto;
+margin-right: auto;
+margin-top:0;
+width: 10%;
+height: 100%;
+background-color: #000;
+opacity:0.9;
+}
+
+.logo1 {padding-top:10%;
+width:68%;
+height:80%;}
+
+.kontener {margin-left: auto;
+margin-right: auto;
+width: 60%;
+height: 10%;
+position:absolute;
+z-index:-1;
+left:0; right:0;
+margin-bottom:auto;
+margin-top:5%;
+}
+
+.opis {color: #fff;
+font-family: 'Exo', sans-serif;
+text-align:justify;
+font-size:120%;
+position:relative;
+top:0; bottom:0; 
+z-index:-1;
+width: 100%;
+line-height:150%;
+background-color: #000;
+display:table;
+vertical-align:middle;
+opacity:0.75;
+padding:1%;
+}
+
+.model {font-size:120%;
+background-color: #fff;
+float:left;
+display:table;
+text-align:left;
+font-family: 'Ropa Sans', sans-serif;
+letter-spacing:0.5;
+padding:1%;
+z-index:-1;
+}
+
+.parametry {font-size:100%;
+width:100%;
+background-color: #fff;
+float:left;
+display:table;
+text-align:right;
+font-family: 'Ropa Sans', sans-serif;
+letter-spacing:0.5;
+padding:1%;
+opacity:0.8;
+z-index:-1;
+}
+
+.belkadol {width: 100%;
+height: 5%;
+bottom:0;
+background-color: #000;
+position:absolute;
+
+}
+
+.stopka {position:absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+color: #fff;
+bottom:10;
+text-align:center;
+width:30%;
+height:2%;
+font-size:90%;
+font-family: 'Exo', sans-serif;
+letter-spacing:0.5;
+opacity:0.9;
+border-right:1px solid #fff;
+border-left:1px solid #fff;
+}
+
+img {opacity:1;
+position:relative;
+margin-left:auto;
+margin-right:auto;
+left:0;
+right:0;
+}
