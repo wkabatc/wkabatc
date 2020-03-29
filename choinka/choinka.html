@@ -1,0 +1,610 @@
+<html>
+<head>
+<title>Choinka...</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas width="600" height="600" id="choinka">
+</canvas>
+<canvas width="600" height="600" id="star">
+</canvas>
+<canvas class="snow"></canvas>
+<br>
+<br>
+<div id="punkt">
+</div>
+<script>
+var can = document.getElementById('star');
+if (can.getContext) {
+var ctx = can.getContext('2d');
+
+function star(ctx, x, y, r, p, m)
+{
+    ctx.save();
+    ctx.beginPath();
+    ctx.translate(x, y);
+    ctx.moveTo(0,0-r);
+    for (var i = 0; i < p; i++)
+    {
+        ctx.rotate(Math.PI / p);
+        ctx.lineTo(0, 0 - (r*m));
+        ctx.rotate(Math.PI / p);
+        ctx.lineTo(0, 0 - r);
+    }
+	ctx.fillStyle = "yellow";
+    ctx.fill();
+    ctx.restore();
+}
+star(ctx, 300, 300, 50, 5, 0.4);
+}
+
+
+
+
+
+
+var canvas = document.getElementById('choinka');
+if (canvas.getContext) {
+var p = canvas.getContext('2d');
+
+p.beginPath();
+p.moveTo(300,0);
+p.lineTo(200,100);
+p.lineTo(400,100);
+p.lineTo(300,0);
+
+p.moveTo(250,100);
+p.lineTo(150,200);
+p.lineTo(200,200);
+p.lineTo(450,200);
+p.lineTo(350,100);
+
+p.moveTo(200,200);
+p.lineTo(100,300);
+p.lineTo(150,300);
+p.lineTo(500,300);
+p.lineTo(400,200);
+
+p.moveTo(150,300);
+p.lineTo(50,400);
+p.lineTo(100,400);
+p.lineTo(550,400);
+p.lineTo(450,300);
+
+p.moveTo(100,400);
+p.lineTo(0,500);
+p.lineTo(600,500);
+p.lineTo(500,400);
+
+p.fillStyle = "green";
+p.fill();
+
+p.beginPath();
+p.moveTo(250,500);
+p.lineTo(250,600);
+p.lineTo(350,600);
+p.lineTo(350,500);
+p.fillStyle = "brown";
+
+p.fill();
+
+
+
+
+
+
+do {
+var ilosc_bomb = prompt('Podaj liczbê bombek (5-14):', '5');
+
+if (ilosc_bomb<5 || ilosc_bomb>14) alert("WprowadŸ poprawn¹ liczbê bombek (5-14)!");
+if (isNaN(ilosc_bomb)) alert("WprowadŸ liczbê!");
+  
+}while(ilosc_bomb<5 || ilosc_bomb>14 || isNaN(ilosc_bomb) )
+var colors = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","BlanchedAlmond","blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkKhaki","DarkMagenta","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightPink","LightSalmon","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSlateBlue","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow"];
+  
+
+function lancuch(){
+var canvas = document.getElementById('choinka');
+if (canvas.getContext) {
+var p = canvas.getContext('2d');
+
+
+function lancuch1(){
+
+var q1=0;
+for(var w=5; w<=550; w=w+11){
+p.beginPath();
+q1=q1+1;
+p.arc(w,500-q1,5,0,2*Math.PI);
+if(w%2!=0){
+  var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+}
+else   var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+
+p.fill();
+}
+}setTimeout(lancuch1,0);
+
+function lancuch2(){
+
+var q2=0;
+for(var w=55; w<=505; w=w+11){
+p.beginPath();
+q2=q2+1.2;
+p.arc(w,400-q2,5,0,2*Math.PI);
+if(w%2!=0){  var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+}
+else   var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+
+p.fill();
+}
+}setTimeout(lancuch2,0);
+
+function lancuch3(){
+
+var q3=0;
+for(var w=105; w<=450; w=w+11){
+p.beginPath();
+q3=q3+1.5;
+p.arc(w,300-q3,5,0,2*Math.PI);
+if(w%2!=0){  var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+}
+else   var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+
+p.fill();
+}
+}
+setTimeout(lancuch3,0);
+
+
+function lancuch4(){
+
+var q4=0;
+for(var w=155; w<=410; w=w+11){
+p.beginPath();
+q4=q4+1.6;
+p.arc(w,200-q4,5,0,2*Math.PI);
+if(w%2!=0){  var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+}
+else 
+  var randomColor = colors[Math.round((Math.random()) * 124)];
+  p.fillStyle = randomColor;
+
+p.fill();
+}
+}
+setTimeout(lancuch4,0);
+
+function lancuch5(){
+
+var q5=0;
+for(var w=205; w<=360; w=w+11){
+p.beginPath();
+q5=q5+2.4;
+p.arc(w,100-q5,5,0,2*Math.PI);
+
+
+if(w%2!=0){  var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+}
+else   var randomColor = colors[Math.round((Math.random()) * 124)];
+p.fillStyle = randomColor;
+
+p.fill();
+}
+}
+setTimeout(lancuch5,0);
+
+}
+}
+
+
+
+
+p.lineWidth=0.5;
+p.strokeStyle='black';
+p.shadowColor='black';
+p.shadowOffsetX=0;
+p.shadowOffsetY=0;
+p.shadowBlur=0.5;
+setTimeout(lancuch,0);
+setInterval(lancuch, 1000); 
+ var string_punkty="";
+ 
+ var tab_y = new Array();
+ while(tab_y.length <= ilosc_bomb-1){
+    var randomnumber = Math.floor(Math.random()*14);
+	randomnumber=randomnumber *35 + 40;
+    if(tab_y.indexOf(randomnumber) > -1) continue;
+    tab_y[tab_y.length] = randomnumber;
+}
+ 
+ for(var i=0; i<tab_y.length; i++){
+ 
+ var y=tab_y[i];
+   
+	  var randomColor = colors[Math.round((Math.random()) * 124)];
+ if(y>=20 && y<70){
+ var x=Math.floor(Math.random()*(340-260+1))+260;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=70 && y<120){
+ var x=Math.floor(Math.random()*(380-220+1))+220;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=120 && y<170){
+ var x=Math.floor(Math.random()*(400-200+1))+200;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=170 && y<220){
+ var x=Math.floor(Math.random()*(440-170+1))+170;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=220 && y<270){
+ var x=Math.floor(Math.random()*(450-150+1))+150;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=270 && y<320){
+ var x=Math.floor(Math.random()*(480-120+1))+120;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=320 && y<370){
+ var x=Math.floor(Math.random()*(480-120+1))+120;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=370 && y<420){
+ var x=Math.floor(Math.random()*(540-60+1))+60;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=420 && y<470){
+ var x=Math.floor(Math.random()*(500-100+1))+100;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+ if(y>=470 && y<=530){
+ var x=Math.floor(Math.random()*(570-30+1))+30;
+p.beginPath();
+p.arc(x,y,15,0,2*Math.PI);
+p.fillStyle = randomColor;
+p.fill();
+}
+
+string_punkty=string_punkty+x+" "+y+"</br>";
+}
+
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(10,600);
+p.lineTo(110,600);
+p.lineTo(110,550);
+p.lineTo(10,550);
+p.fillStyle = randomColor;
+p.fill();
+
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(10,570);
+p.lineTo(80,570);
+p.lineTo(80,550);
+p.lineTo(90,550);
+p.lineTo(90,570);
+p.lineTo(110,570);
+p.lineTo(110,580);
+p.lineTo(90,580);
+p.lineTo(90,600);
+p.lineTo(80,600);
+p.lineTo(80,580);
+p.lineTo(10,580);
+p.lineTo(10,570);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(130,600);
+p.lineTo(180,600);
+p.lineTo(180,520);
+p.lineTo(130,520);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(140,600);
+p.lineTo(140,560);
+p.lineTo(130,560);
+p.lineTo(130,550);
+p.lineTo(140,550);
+p.lineTo(140,520);
+p.lineTo(150,520);
+p.lineTo(150,550);
+p.lineTo(180,550);
+p.lineTo(180,560);
+p.lineTo(150,560);
+p.lineTo(150,600);
+p.lineTo(140,600);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(190,600);
+p.lineTo(240,600);
+p.lineTo(240,560);
+p.lineTo(190,560);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(220,600);
+p.lineTo(220,590);
+p.lineTo(240,590);
+p.lineTo(240,580);
+p.lineTo(220,580);
+p.lineTo(220,560);
+p.lineTo(210,560);
+p.lineTo(210,580);
+p.lineTo(190,580);
+p.lineTo(190,590);
+p.lineTo(210,590);
+p.lineTo(210,600);
+p.lineTo(220,600);
+p.fillStyle = randomColor;
+p.fill();
+
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(360,600);
+p.lineTo(430,600);
+p.lineTo(430,540);
+p.lineTo(360,540);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(390,600);
+p.lineTo(400,600);
+p.lineTo(400,575);
+p.lineTo(430,575);
+p.lineTo(430,565);
+p.lineTo(400,565);
+p.lineTo(400,540);
+p.lineTo(390,540);
+p.lineTo(390,565);
+p.lineTo(360,565);
+p.lineTo(360,575);
+p.lineTo(390,575);
+p.moveTo(390,600)
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+
+p.beginPath();
+p.moveTo(450,600);
+p.lineTo(530,600);
+p.lineTo(530,520);
+p.lineTo(450,520);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(470,600);
+p.lineTo(480,600);
+p.lineTo(480,550);
+p.lineTo(530,550);
+p.lineTo(530,540);
+p.lineTo(480,540);
+p.lineTo(480,520);
+p.lineTo(470,520);
+p.lineTo(470,540);
+p.lineTo(450,540);
+p.lineTo(450,550);
+p.lineTo(470,550);
+p.lineTo(470,600);
+p.fillStyle = randomColor;
+p.fill();
+
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+
+p.beginPath();
+p.moveTo(540,600);
+p.lineTo(590,600);
+p.lineTo(590,550);
+p.lineTo(540,550);
+p.fillStyle = randomColor;
+p.fill();
+
+randomColor = colors[Math.round((Math.random()) * 124)];
+
+p.beginPath();
+p.moveTo(570,600);
+p.lineTo(580,600);
+p.lineTo(580,580);
+p.lineTo(590,580);
+p.lineTo(590,570);
+p.lineTo(580,570);
+p.lineTo(580,550);
+p.lineTo(570,550);
+p.lineTo(570,570);
+p.lineTo(540,570);
+p.lineTo(540,580);
+p.lineTo(570,580);
+p.lineTo(570,600);
+p.fillStyle = randomColor;
+p.fill();
+
+//document.getElementById("punkt").innerHTML=string_punkty;
+
+}
+
+
+var canvas = document.querySelector('.snow'),
+    ctx = canvas.getContext('2d'),
+    windowW = window.innerWidth,
+    windowH = window.innerHeight,
+    numFlakes = 200,
+    flakes = [];
+
+function Flake(x, y) {
+  var maxWeight = 5,
+      maxSpeed = 2;
+  
+  this.x = x;
+  this.y = y;
+  this.r = randomBetween(0, 1);
+  this.a = randomBetween(0, Math.PI);
+  this.aStep = 0.01;
+
+  
+  this.weight = randomBetween(2, maxWeight);
+  this.alpha = (this.weight / maxWeight);
+  this.speed = (this.weight / maxWeight) * maxSpeed;
+  
+  this.update = function() {
+    this.x += Math.cos(this.a) * this.r;
+    this.a += this.aStep;
+    
+    this.y += this.speed;
+  }
+  
+}
+
+function init() {
+  var i = numFlakes,
+      flake,
+      x,
+      y;
+  
+  while (i--) {
+    x = randomBetween(0, windowW, true);
+    y = randomBetween(0, windowH, true);
+    
+    
+    flake = new Flake(x, y);
+    flakes.push(flake);
+  }
+  
+  scaleCanvas();
+  loop();  
+}
+
+function scaleCanvas() {
+  canvas.width = windowW;
+  canvas.height = windowH;
+}
+
+function loop() {
+  var i = flakes.length,
+      z,
+      dist,
+      flakeA,
+      flakeB;
+  
+
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, windowW, windowH);
+  ctx.restore();
+  
+
+  while (i--) {
+    
+    flakeA = flakes[i];
+    flakeA.update();
+
+    ctx.beginPath();
+    ctx.arc(flakeA.x, flakeA.y, flakeA.weight, 0, 2 * Math.PI, false);
+    ctx.fillStyle = 'rgba(255, 255, 255, ' + flakeA.alpha + ')';
+    ctx.fill();
+    
+    if (flakeA.y >= windowH) {
+      flakeA.y = -flakeA.weight;
+    }  
+  }
+  
+  requestAnimationFrame(loop);
+}
+
+function randomBetween(min, max, round) {
+  var num = Math.random() * (max - min + 1) + min;
+
+  if (round) {
+    return Math.floor(num);
+  } else {
+    return num;
+  }
+}
+
+function distanceBetween(vector1, vector2) {
+  var dx = vector2.x - vector1.x,
+      dy = vector2.y - vector1.y;
+
+  return Math.sqrt(dx*dx + dy*dy);
+}
+
+init();
+
+</script>
+
+</body></html>
