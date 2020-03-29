@@ -1,0 +1,182 @@
+﻿<html>
+
+	<head>
+	<title>Adresacja sieci</title>
+	<link rel="stylesheet" href="style/style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+	<link rel="icon" href="grafika/icon.ico">
+	</head>
+	
+	<body background="grafika/tlo.jpg">
+	
+	<div class="naglowek">
+	<h1>Adresacja sieci</h1>
+	</div>
+	
+	<div class="zawartosc">
+
+	<div id="baner">
+	<h2>Wprowadź adres wraz z maską <small>(192.168.10.0/24)</small> &nbsp&nbsp </h2>
+	<form id="wpisz">
+	<input type="text" name="adres_ip" id="adres"/>
+	<input type="button" id="Licz" value="Oblicz" onclick="obliczanie()"/>
+	</form>	
+	</div>
+
+<table>
+	<form id="wyniki">
+	<tr>
+		<td><label>Adres hosta [dec]: </label></td>
+		<td><input type="text" id="adr_h_d" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Adres hosta [bin]: </label></td>
+		<td><input type="text" id="adr_h_b" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Adres sieci [dec]: </label></td>
+		<td><input type="text" id="adr_s_d" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Adres sieci [bin]: </label></td>
+		<td><input type="text" id="adr_s_b" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Adres rozgłoszeniowy [dec]: </label></td>
+		<td><input type="text" id="adr_r_d" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Adres rozgłoszeniowy [bin]: </label></td>
+		<td><input type="text" id="adr_r_b" /></td>
+	</tr>
+	
+	</form>
+</table>
+
+<input type="button" id="nowy" value="Nowe dane" onclick="czyszczenie()" />
+
+<div class="stopka">
+CREATED BY WOJCIECH KABATC © 2016 All Rights Reserved
+</div>
+		
+		<script type="text/javascript">
+		
+		document.getElementById("adr_h_d").disabled=true;
+		document.getElementById("adr_h_b").disabled=true;
+		document.getElementById("adr_s_d").disabled=true;
+		document.getElementById("adr_s_b").disabled=true;
+		document.getElementById("adr_r_d").disabled=true;
+		document.getElementById("adr_r_b").disabled=true;
+		
+		//zamiana na bin
+		function DecToBinD(Dec,lb=8)
+		{
+		 var Bin="", vp= Math.pow(2,lb-1);
+		 while(vp>=1){
+		 if(Dec>=vp){
+		 
+		 Bin =Bin+"1";
+		 Dec =Dec-vp;
+		 }
+		 else Bin=Bin+"0";
+		 vp=vp/2;
+		 }
+		  return Bin;
+		 }	
+		 
+		 //zamiana na dec
+		function BinToDec(Bin){
+		var Dec=0;
+		for( var p=Bin.length-1; p>=0; p--)
+			Dec=Dec+Bin[Bin.length-1-p]*Math.pow(2,p);
+			
+		return Dec;
+		}
+			
+			
+			
+		//main	
+		function obliczanie()	{
+			var IP=document.getElementById("adres").value;
+			var IPbin="", MBin="";
+			var Oktet=[], M=[];
+			M=IP.split('/');
+			Oktet=M[0].split('.');
+			/* document.write(Oktet[0]+"</br>");
+			document.write(Oktet[1]+"</br>");
+			document.write(Oktet[2]+"</br>");
+			document.write(Oktet[3]+"</br>");
+			document.write(M[0]+"</br>");
+			document.write(M[1]+"</br>"); */
+	
+		IPBin=DecToBinD(Oktet[0])+DecToBinD(Oktet[1])+DecToBinD(Oktet[2])+DecToBinD(Oktet[3]);
+		
+		document.getElementById("adr_h_d").value=IP;
+		document.getElementById("adr_h_b").value=IPBin;
+		/* document.write("Adres hosta[dec]: "+IP+"</br>");
+		document.write("Adres hosta[bin]: "+IPBin+"</br>"); */
+		
+		
+		var IPSBin="";
+		IPSBin=IPBin.slice(0,M[1]);
+		for (var i=M[1];i<32;i++)
+			IPSBin=IPSBin+"0";
+		
+		var IPS;
+		IPS=BinToDec(IPSBin.slice(0,8))+"."+BinToDec(IPSBin.slice(8,16))+"."+BinToDec(IPSBin.slice(16,24))+"."+BinToDec(IPSBin.slice(24,32));
+		
+		document.getElementById("adr_s_d").value=IPS;
+		document.getElementById("adr_s_b").value=IPSBin;
+		/* document.write("Adres sieci[dec]: &nbsp"+IPS+"</br>");
+		document.write("Adres sieci[bin]: &nbsp"+IPSBin+"</br>"); */
+		
+		
+		var IPRBin="";
+		IPRBin=IPBin.slice(0,M[1]);
+		for (var i=M[1];i<32;i++)
+			IPRBin=IPRBin+"1";
+		
+		var IPR;
+		IPR=BinToDec(IPRBin.slice(0,8))+"."+BinToDec(IPRBin.slice(8,16))+"."+BinToDec(IPRBin.slice(16,24))+"."+BinToDec(IPRBin.slice(24,32));
+		
+		document.getElementById("adr_r_d").value=IPR;
+		document.getElementById("adr_r_b").value=IPRBin;
+		/* document.write("Adres rozgłoszeniowy[dec]: &nbsp"+IPR+"</br>");
+		document.write("Adres rozgłoszeniowy[bin]: &nbsp"+IPRBin+"</br>"); */
+		}
+		
+		function czyszczenie() {
+		document.getElementById("wpisz").reset();
+		document.getElementById("wyniki").reset();
+		}
+		
+		function sprawdz() {
+	var wpisane = this.value;
+	var maska =  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/([0-9]|1[0-9]|2[0-9]|3[0-2])$/;
+	if (!maska.test(wpisane))
+	{
+	alert("Niepoprawny format!");
+	this.value="";
+	}
+	}
+	
+	var Formularz=document.getElementById("wpisz")
+	Formularz.adres_ip.onchange = sprawdz;
+
+		</script>
+	
+	
+	
+	
+	
+	</body>
+
+
+
+
+</html>
