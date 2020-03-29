@@ -1,0 +1,137 @@
+﻿body {
+	margin:0;
+	font-family: 'Khand', sans-serif;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-repeat: repeat-y;
+}
+
+.naglowek {
+	height:7%;
+	width:100%;
+	background-color:#000;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	color:#fff;
+	letter-spacing:3;
+	word-spacing:4;
+}
+
+.hr1{
+color: #fff;
+background-color: #fff;
+width:300px;
+margin-left:0px;
+opacity:0.9;
+}
+
+.hr2{
+color: #fff;
+background-color: #fff;
+width:300px;
+margin-right:0px;
+opacity:0.9;
+}
+
+.zawartosc {
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;	
+}
+
+
+
+table {
+	float:left;
+	color:#000;
+	text-align:left;
+	height:15%;
+	border-radius:5px;
+	background:rgba(227,227,227, 0.9);
+	margin-top:2%;
+	font-size:16;
+	font-weight:550;
+}
+
+td {
+	width:30%;
+	height:20%;
+}
+
+.tab1 {
+	width:27%;
+}
+
+.tab2 {
+	margin-left:1%;
+	width:27%;
+}
+
+label {
+	margin-left:10px;
+}
+
+input {
+	margin-right:10%;
+}
+
+#licz {
+	width: 200px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 3px;
+	font-size:16;
+	font-family: 'Khand', sans-serif;
+}
+
+#licz:hover , #nowy:hover {
+	opacity: 0.8;
+}
+
+#ilosc, #maks, #poz, #pion {
+	width: 200px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.baner {
+	margin-top:2%;
+	width:55%;
+	height: 8%;
+	background-color:white;
+	align-items:center;	
+	justify-content:center;
+	border-radius: 5px;
+	letter-spacing:1;
+	background: rgba(255,255,255,0.95);
+	display: flex;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#wykresik {
+	float:left;
+	width:100%;
+	text-align:center;
+	margin-top:2%;
+}
+
+#wykres {
+	border-radius: 5px;
+	background-color:#fff;
+	opacity:0.9;
+}

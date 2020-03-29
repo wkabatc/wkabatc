@@ -1,0 +1,152 @@
+﻿<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Wykresik</title>
+	<link rel="stylesheet" href="style/style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+	<link rel="icon" href="grafika/icon.png">
+</head>
+
+<body background="grafika/tlo.png">
+<div class="naglowek">
+	<hr class="hr1"><h1>Wykres kolumnowy</h1><hr class="hr2">
+</div>
+
+<div class="baner">
+<h2>Wprowadź wartości, aby wygenerować wykres</h2>
+</div>
+<div class="zawartosc">
+<table class="tab1">
+
+
+	<form id="wpisz" action="form_action.asp">
+	
+	<tr>
+		<td><label>Ilość liczb: </label></td>
+		<td><input type="text" name="il_liczb" id="ilosc" required/></td>
+	</tr>
+	
+	<tr>
+		<td><label>Wartość maksymalna: </label></td>
+		<td><input type="text" name="wart_maks" id="maks" required /></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td><input type="button" id="Licz" value="Generuj wykres" onclick="wymagany(); wykresKlm(); "/></td>
+	</tr>
+
+</table>
+
+<table class="tab2">
+	
+	<tr>
+		<td><label>Szerokość wykresu: </label></td>
+		<td><input type="text" name="roz_poz" id="poz" required/></td>
+	</tr>
+	
+	<tr>
+		<td><label>Wysokość wykresu: </label></td>
+		<td><input type="text" name="roz_pion" id="pion" required/></td>
+	</tr>
+	
+		<tr>
+
+	<td></td>
+		<td><input type="button" id="Licz" value="Nowe dane" onclick="czyszczenie()" /></td>
+	</tr>
+	
+	</form>
+</table>
+</div>
+<div id="wykresik">
+</div>
+		<script>
+			
+			function wymagany(){ 
+			var a = document.getElementById("ilosc").value
+			var b = document.getElementById("maks").value
+			var c = document.getElementById("poz").value
+			var d = document.getElementById("pion").value
+			
+			if (a=="" || b=="" || c=="" || d=="")
+			alert("Wypełnij pola!");
+			}
+			
+			function los(limit){
+				return Math.floor(Math.random()*limit);
+			}
+				
+			function wykresKlm() {
+				
+				var Formularz=document.getElementById("wpisz");
+				var Tab = new Array();
+				var Max = Formularz.maks.value; //Maksymalna wartość
+				var N = Formularz.ilosc.value; //Ilość liczb
+				var rozX = Formularz.poz.value;
+				var rozY = Formularz.pion.value;
+				var margX=20;
+				var margY=20;
+				var Dane=Tab;
+				var a = document.getElementById("ilosc").value
+				var b = document.getElementById("maks").value
+				var c = document.getElementById("poz").value
+				var d = document.getElementById("pion").value
+				
+				for (var i=0; i<N; i++)
+					Tab[i] = Math.round(Math.random()*Max);
+				if (!a=="" && !b=="" && !c=="" && !d=="")
+				document.getElementById("wykresik").innerHTML = '<canvas width=\"'+rozX+'\" height=\"'+rozY+'\" id=\"wykres\"></canvas></br>';
+				var obszarWykresu = document.getElementById('wykres').getContext('2d');
+				var ox=rozX-2*margX;
+				var oy=rozY-2*margY;
+				var sz=Math.round(0.8*ox/N);
+				
+				//oś Y
+				obszarWykresu.strokeStyle = "rgb(55,55,255)";
+				obszarWykresu.beginPath();
+				obszarWykresu.moveTo(margX, margY);
+				obszarWykresu.lineTo(margX, margY+oy);
+				obszarWykresu.stroke();
+				
+				//oś X i podziałka 
+				for (var i=0; i<oy/10; i++) {
+				obszarWykresu.beginPath();
+				obszarWykresu.moveTo(margX, margY+oy-i*oy/10);
+				obszarWykresu.lineTo(1.5*margX+ox, margY+oy-i*oy/10);
+				obszarWykresu.stroke();
+				}
+				
+				//rysowanie kolumn
+				for (var i=1; i<=N; i++){
+				var x1=Math.round(margX+ox*(i-0.8)/N);
+				var y1=Math.round(margY+oy*(1-Dane[i-1]/Max));
+				var y=Math.round(Dane[i-1]*oy/Max);
+				
+				//obszarWykresu.fillStyle="rgb("+150","+150/N*i+","+150/N*i+")";
+				obszarWykresu.fillStyle="rgb("+los(255)+","+los(255)+","+los(255)+")";
+				obszarWykresu.fillRect(x1, y1, sz, y);
+				}
+			}
+			
+			function sprawdz() {
+				var dane_wpisane = this.value;
+				var maska = /^[0-9]+$/g;
+					if (!maska.test(dane_wpisane)){
+						alert("Wprowadź dodatnią liczbę całkowitą!");
+						this.value="";}
+						}
+			
+						
+			document.getElementById("ilosc").onchange = sprawdz;
+			document.getElementById("maks").onchange = sprawdz;
+			document.getElementById("poz").onchange = sprawdz;
+			document.getElementById("pion").onchange = sprawdz;
+		
+			function czyszczenie() {
+			document.getElementById("wpisz").reset();
+			document.getElementById("wykresik").innerHTML = "";
+			}
+		</script>
+</body>	
+</html>
