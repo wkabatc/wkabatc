@@ -1,0 +1,84 @@
+<html>
+<title>Kalkulator kosztów zużycia energii elektrycznej</title>
+<head>
+<link rel="icon" type="image/png" href="images/icon.png" />
+<link rel="stylesheet" href="style/style.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Advent+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
+</head>
+<body background="images/tlo.jpg">
+<div class="belka"><b>Kalkulator kosztów zużycia energii elektrycznej</b></div>
+<div class="kontener"><div class="wyniki" ><script>
+alert ("Kalkulator kosztów zużycia energii elektrycznej. (Domyślne dane dotyczą notebooka, pobierającego 65W energii.)");
+ do {
+ var M = prompt("Wprowadź moc zasilacza [W] ", "65");
+         if (isNaN(M) === true || M<0) {
+            condition=false;
+			alert ("Wprowadź liczbę dodatnią!");
+           } else {
+           condition=true;
+           }
+ } while(condition===false);
+  do {
+var K = prompt ("Wpisz koszt jednego kilowata [zł]", "0.5");
+         if (isNaN(K) === true || K<0) {
+            condition=false;
+			alert ("Wprowadź liczbę dodatnią!");
+           } else {
+           condition=true;
+           }
+ } while(condition===false);
+  do {
+ var T = prompt ("Podaj średni czas użycia (dziennie) [godz.] ", "8");
+         if (isNaN(T) === true || T<0) {
+            condition=false;
+			alert ("Wprowadź liczbę dodatnią!");
+           } else {
+           condition=true;
+           }
+ } while(condition===false);
+  do {
+var X = prompt ("Ilość dni roboczych: ", "0");
+         if (isNaN(X) === true || X<0) {
+            condition=false;
+			alert ("Wprowadź liczbę dodatnią!");
+           } else {
+           condition=true;
+           }
+ } while(condition===false);
+var zamiana = M/1000
+var X_dni = zamiana*K*T*X
+var dziennie = zamiana*K*T
+var miesięcznie = zamiana*K*T*30
+var rocznie = zamiana*K*T*365
+var X_dni_Zaokraglona = X_dni.toFixed(2)
+var dziennie_Zaokraglona = dziennie.toFixed(2)
+var miesięcznie_Zaokraglona = miesięcznie.toFixed(2)
+var rocznie_Zaokraglona = rocznie.toFixed(2)
+document.write("<p>");
+document.write("Koszt zużycia to:");
+document.write("</p>");
+document.write("<p><ul><li>");
+document.write("<b>dla "+X+" dni roboczych: </b>" + X_dni_Zaokraglona +"[zł]");
+document.write("</li>");
+document.write("<li>");
+document.write("<b>dzienne: </b>" + dziennie_Zaokraglona +"[zł]");
+document.write("</li>");
+document.write("<li>");
+document.write("<b>miesięczne: </b>" + miesięcznie_Zaokraglona +"[zł]");
+document.write("</li>");
+document.write("<li>");
+document.write("<b>roczne: </b>" + rocznie_Zaokraglona +"[zł]");
+document.write("</li>");
+document.write("</p>");
+</script>
+</div>
+<div class="przycisk"><a href="javascript:history.go(0)"><b>NOWE DANE</b></a>
+</div>
+</div>
+<div class="stopka">
+CREATED BY WOJCIECH KABATC © 2016 All Rights Reserved
+</div>
+</body>
+</html>
