@@ -1,0 +1,179 @@
+﻿<html>
+<head>
+<title>Formularz zamówienia</title>
+<link rel="stylesheet" href="style/style.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+<link rel="icon" href="grafika/icon.png">
+</head>
+<body background="grafika/tlo.jpg">
+<div class="naglowek">
+	<h1>Formularz zamówienia</h1>
+</div>
+
+<div class="menu_boczne">
+
+<div id="navi_boczna" class="navi_style">
+  <a href="javascript:void(0)" class="zamykanie" onclick="closeNav()">&times;</a>
+  <a href="#">Opcja#1</a>
+  <a href="#">Opcja#1</a>
+  <a href="#">Opcja#1</a>
+</div>
+
+<div id="menu">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+</div>
+</div>
+
+<div class="zawartosc">
+<div id="baner">
+<h2>Wypełnij formularz, aby złożyć zamówienie</h2>
+</div>
+<input type="button" id="nowy" value="Nowe zamówienie" onclick="czyszczenie()" />
+
+<table class="tab1">
+
+
+	<form id="wpisz">
+	
+	<tr>
+		<td><label>Nazwa towaru: </label></td>
+		<td><input type="text" name="nazwa_towaru" id="nazwa"/></td>
+	</tr>
+	
+	<tr>
+		<td><label>Ilość towaru [szt.]:</label></td>
+		<td><input type="text" name="ilosc_towaru" id="ilosc" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Cena [netto/szt.]: </label></td>
+		<td><input type="text" name="cena" id="cena"/></td>
+	</tr>
+	
+	</form>
+	
+	<tr>
+	<form id="wyniki">
+	<td></td>
+		<td><input type="button" id="Licz" value="Oblicz wartość zamówienia"/></td>
+	</tr>
+</table>
+
+<table class="tab2">
+	
+	<tr>
+		<td><label>Upust [%]: </label></td>
+		<td><input type="text" id="upust" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Wartość zamówienia [netto]: </label></td>
+		<td><input type="text" id="wart_zamówienia_netto" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Wartość zamówienia [brutto]: </label></td>
+		<td><input type="text" id="wart_zamówienia_brutto" /></td>
+	</tr>
+	
+	<tr>
+		<td><label>Koszty transportu [brutto]: </label></td>
+		<td><input type="text" id="transport" /></td>
+	</tr>
+	
+	</form>
+</table>
+	
+	<script>
+
+	document.getElementById("upust").disabled=true;
+	document.getElementById("wart_zamówienia_netto").disabled=true;
+	document.getElementById("wart_zamówienia_brutto").disabled=true;
+	document.getElementById("transport").disabled=true;
+	
+	var Formularz=document.getElementById("wpisz")
+	
+	document.getElementById("Licz");
+	onclick=function () {
+
+	
+	var ilosc, cena;
+	ilosc = parseInt (Formularz.ilosc_towaru.value);
+	cena = parseFloat (Formularz.cena.value);
+	
+	var tysiace = (cena*ilosc)/1000
+	if (tysiace<1) document.getElementById("upust").value=0
+	else if (tysiace>=1 && tysiace<2) document.getElementById("upust").value=1
+	else if (tysiace>=2 && tysiace<3) document.getElementById("upust").value=2
+	else if (tysiace>=3 && tysiace<4) document.getElementById("upust").value=3
+	else if (tysiace>=4 && tysiace<5) document.getElementById("upust").value=4
+	else if (tysiace>=5 && tysiace<6) document.getElementById("upust").value=5
+	else if (tysiace>=6 && tysiace<7) document.getElementById("upust").value=6
+	else if (tysiace>=7 && tysiace<8) document.getElementById("upust").value=7
+	else if (tysiace>=8 && tysiace<9) document.getElementById("upust").value=8
+	else if (tysiace>=9 && tysiace<10) document.getElementById("upust").value=9
+	else if (tysiace>=10) document.getElementById("upust").value=10
+	
+	var n_v = ((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100)).toFixed(2)
+	if(!isNaN(n_v))
+	{
+		document.getElementById("wart_zamówienia_netto").value = ((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100)).toFixed(2) + " zł"
+		document.getElementById("wart_zamówienia_brutto").value = (((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100))*1.23).toFixed(2) + " zł"
+	}	
+	else
+	{
+		document.getElementById("wart_zamówienia_netto").value = ""
+		document.getElementById("wart_zamówienia_netto").value = ""
+	}
+	
+	if ((((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100))*1.23).toFixed(2)<=3000) 
+	document.getElementById("transport").value=30 + " zł"
+	else if ((((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100))*1.23).toFixed(2)>3000 && 
+	(((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100))*1.23).toFixed(2)<=6000 ) 
+	document.getElementById("transport").value=15 + " zł"
+	else if ((((cena*ilosc)-((cena*ilosc)*document.getElementById("upust").value/100))*1.23).toFixed(2)>6000) 
+	document.getElementById("transport").value=0 + " zł"
+	}
+	
+	function sprawdz_ilosc() {
+	var dane_wpisane = this.value;
+	var maska = /^[0-9]+$/g;
+	if (!maska.test(dane_wpisane))
+	{
+	alert("Wprowadź dodatnią liczbę całkowitą!");
+	this.value="";
+	}
+	}
+	
+	function sprawdz_cene() {
+	var dane_wpisane = this.value;
+	var maska = /^[.0-9]+$/g;
+	if (!maska.test(dane_wpisane))
+	{
+	alert("Wprowadź dodatnią wartość liczbową!");
+	this.value="";
+	}
+	}
+	
+	Formularz.ilosc_towaru.onchange = sprawdz_ilosc;
+	Formularz.cena.onchange = sprawdz_cene;
+	
+	function openNav() {
+    document.getElementById("navi_boczna").style.width = "15%";
+    document.getElementById("menu").style.marginLeft = "20%";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+	}
+
+	function closeNav() {
+    document.getElementById("navi_boczna").style.width = "0";
+    document.getElementById("menu").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+	}
+	
+	function czyszczenie() {
+	document.getElementById("wpisz").reset();
+	document.getElementById("wyniki").reset();
+	}
+	</script>
+</div>
+</body>

@@ -1,0 +1,179 @@
+﻿body {
+	margin:0;
+	font-family: 'Khand', sans-serif;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.naglowek {
+	height:7%;
+	width:100%;
+	background-color:#000;
+	display:flex;
+	align-items:center;
+	color:#fff;
+	letter-spacing:3;
+}
+
+h1 {padding:16%;
+}
+
+.menu_boczne{
+	height:93%;
+	width:15%;
+	float:left;
+	background: rgba(0, 0, 0, .7);
+	color:#fff;
+}
+
+.navi_style {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.navi_style a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.navi_style a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.navi_style .zamykanie {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#menu {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+.zawartosc {
+	height:93%;
+	width:85%;
+	float:left;
+	display:flex;
+	justify-content:center;
+	align-items:center;	
+}
+
+
+
+table {
+	float:left;
+	color:#70624b;
+	padding-left:1%;
+	margin-left:2%;
+	text-align:left;
+	height:35%;
+	border-radius:5px;
+	background:rgba(227,227,227, 0.8);
+}
+
+td {
+	width:30%;
+	height:25%;
+}
+
+.tab1 {
+	width:35%;
+}
+
+.tab2 {
+	margin-left:3%;
+	width:35%;
+}
+
+#licz {
+	width: 250px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 3px;
+	font-size:16;
+	font-family: 'Khand', sans-serif;
+}
+
+#licz:hover , #nowy:hover {
+	opacity: 0.8;
+}
+
+#nazwa, #cena, #ilosc {
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+#upust, #wart_zamówienia_netto, #wart_zamówienia_brutto, #transport {
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	background: rgba(255,255,255,0.6);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 2px;
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+#baner {
+	width:62%;
+	height: 8%;
+	background-color:white;
+	position:absolute;
+	top:25%;
+	align-items:center;	
+	justify-content:center;
+	border-radius: 5px;
+	display:flex;
+	letter-spacing:1;
+	background: rgba(255,255,255,0.9);
+}
+
+#nowy {
+	position:absolute;
+	top:75%;
+	right:11.5%;
+	width: 150px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 3px;
+	font-family: 'Khand', sans-serif;
+	font-size:16px;
+	font-weight;
+}
