@@ -1,0 +1,238 @@
+.container {
+	padding: 10px;
+}
+
+select option[disabled] {
+    display: none;
+}
+
+.col-sm-6 {
+	margin-top:auto;
+	margin-bottom:auto;
+}
+
+.col-sm-6 .btn {
+	width:200px;
+	height: 40px;
+	padding:0px;
+}
+
+.col-sm-6:first-child {
+	padding:0px !important;
+}
+
+.col-sm-6:nth-child(2) {
+	text-align:right;
+}
+
+.browser-default{
+	width:150px !important;
+}
+
+.pokedex {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 30px;
+}
+
+.card-id {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 90px;
+	letter-spacing: 1.2px;
+	word-spacing: 1.8px;
+	color: #ffffff;
+	font-weight: 400;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	margin-left:10px;
+	margin-top:-10px;
+}
+
+.centerBlock {
+	display: table;
+	margin: auto;
+}
+
+.card-title {
+	margin-top:10px;
+	margin-left:13px
+}
+
+.btn-group > .btn-sm {
+	width:80px;
+	border-radius: 20px;
+	color: #3c3c3c;
+}
+
+
+.btn-group {
+	margin-left: 10px
+}
+
+.btn.disabled {
+	opacity:1 !important;
+}
+
+.btn-sm[data-type=""] {
+	display:none;
+}
+
+hr {
+	margin-bottom:-0.3rem !important;
+}
+
+.fas.fa-running {
+	color:#4fc3f7;
+}
+
+.fas.fa-shield-alt {
+	color: #66bb6a;
+}
+
+.fas.fa-fire {
+	color: #ef5350;
+}
+
+.hash {
+	font-size:80px
+}
+
+.card[data-content="pokemon"] {
+	height:260px
+}
+
+.card-image {
+	width: 220px;
+	margin-left:55px;
+	margin-top:-60px
+}
+
+.card-text {
+	font-size: 11px;
+	text-align: center;
+	font-weight: 500;
+	color: #3c3c3c;
+	margin-top:5px;
+}
+
+.row {
+	padding:10px
+}
+
+.page-item.hidden {
+	display:none;
+}
+
+.card[data-type^="normal"], .btn-sm[data-type="normal"] {
+	background-color:rgba(158, 158, 158, 0.7);
+}
+
+.card[data-type^="water"], .btn-sm[data-type="water"] {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+
+.card[data-type^="fire"], .btn-sm[data-type="fire"] {
+	background-color: rgba(255, 152, 0, 0.7);
+}
+
+.card[data-type^="electric"], .btn-sm[data-type="electric"] {
+	background-color: rgba(255, 235, 59, 0.7);
+}
+
+.card[data-type^="grass"], .btn-sm[data-type="grass"] {
+	background-color: rgba(76, 175, 80, 0.7);
+}
+
+.card[data-type^="ice"], .btn-sm[data-type="ice"] {
+	background-color: rgba(0, 188, 212, 0.7) ;
+}
+
+.card[data-type^="fighting"], .btn-sm[data-type="fighting"] {
+	background-color: rgba(244, 67, 54, 0.7);
+}
+
+.card[data-type^="poison"], .btn-sm[data-type="poison"] {
+	background-color: rgba(156, 39, 176, 0.7);
+}
+
+.card[data-type^="ground"], .btn-sm[data-type="ground"] {
+	background-color: rgba(121, 85, 72, 0.7);
+}
+
+.card[data-type^="flying"], .btn-sm[data-type="flying"] {
+	background-color: rgba(0, 150, 136, 0.7);
+}
+
+.card[data-type^="psychic"], .btn-sm[data-type="psychic"] {
+	background-color: rgba(233, 30, 99, 0.7);
+}
+
+.card[data-type^="bug"], .btn-sm[data-type="bug"] {
+	background-color: rgba(205, 220, 57, 0.7);
+}
+
+.card[data-type^="rock"], .btn-sm[data-type="rock"] {
+	background-color: rgba(77, 54, 46, 0.7);
+}
+
+.card[data-type^="ghost"], .btn-sm[data-type="ghost"] {
+	background-color: rgba(63, 81, 181, 0.7);
+}
+
+.card[data-type^="dragon"], .btn-sm[data-type="dragon"] {
+	background-color: rgba(54, 69, 155, 0.7);
+}
+
+.card[data-type^="dark"], .btn-sm[data-type="dark"] {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card[data-type^="steel"], .btn-sm[data-type="steel"] {
+	background-color: rgba(62, 69, 81, 0.7);
+}
+
+.card[data-type^="fairy"], .btn-sm[data-type="fairy"] {
+	background-color: rgba(233, 30, 99, 0.5);
+}
+
+.card.animation:hover {
+	animation: pulse 0.5s 
+}
+
+@media only screen  and (min-width : 1224px) {
+
+	.col-sm-6:nth-child(2) {
+		padding-right:5px !important;
+	}
+
+	.pagination {
+		float:right;
+	}
+
+	.pokedex {
+		grid-template-columns: repeat(auto-fit, max(255px));
+	}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+	.card-image {
+		max-width: 90%;
+		margin-left:90px;
+	}
+
+	.col-sm-6 {
+		text-align:center !important;
+	}
+
+	.col-sm-6:nth-child(2) {
+		margin-top:10px;
+	}
+
+	.pokedex {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	}
+
+}
+

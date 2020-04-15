@@ -1,0 +1,103 @@
+@dim:1em;
+.font()
+{
+	width:100%;
+	height:100%;
+	text-align:center;
+	display:block;
+	font-size:.2em;
+	position:absolute;
+	top:0;
+	left:0;
+	line-height:@dim*5;
+	z-index:9999;
+	color:var(--color);
+	white-space:nowrap;
+	box-sizing: content-box;
+	border-radius:50%;
+}
+@bar-color:#cccccc;
+.circle
+{
+	height:@dim;
+	width:@dim;
+	position:relative;
+	display:inline-block;
+	border-radius:50%;
+	font-size:100%;
+	box-sizing: content-box;
+	font-size:200px;
+	&:after
+	{
+		content:"";
+		height:100%;
+		width:100%;
+		position:absolute;
+		top:0%;
+		left:0%;
+		border-radius:50%;
+		box-sizing: border-box;
+		border:solid @dim/10 @bar-color;
+		z-index:-1;
+	}
+	>span
+	{
+		.font;
+	}
+	>.bar
+	{
+		height:100%;
+		width:100%;
+		position:absolute;
+		box-sizing: content-box;
+		&:before ,&:after
+		{
+			content:'';
+			height:80%;
+			width:80%;
+			position:absolute;
+			border:solid @dim/10 var(--color);
+			border-radius:50%;
+			box-sizing: content-box;
+			clip: rect(0, @dim/2, @dim, 0);
+		}
+	}
+	&.big
+	{
+		font-size:300px;
+	}
+	&.medium
+	{
+		font-size:200px;
+	}
+	&.small
+	{
+		font-size:100px;
+	}
+	&.x-small
+	{
+		font-size:50px;
+	}
+	.fill();
+}
+/*Fill start*/
+.fill(@i: 0) when (@i =< 100)
+{
+	&[data-fill="@{i}"]
+	{
+		@rotate:3.6deg*@i;
+		>.bar
+		{
+			clip: if((@i<51),rect(0, @dim, @dim, @dim/2),rect(auto,auto,auto));
+			&:before
+			{
+				transform:rotate(if((@i<51),(@rotate),180deg));
+			}
+			&:after
+			{
+				transform:rotate(if((@i>51),(@rotate),0deg));
+			}
+		}
+	}
+	.fill((@i + 1));
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeDex</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="charts.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+  
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-dark primary-color">
+      <a class="navbar-brand" href=".">
+        <img src="https://image.flaticon.com/icons/svg/188/188918.svg" height="30" class="d-inline-block align-top"alt="pokeball"> 
+        POKEDEX
+      </a>
+    </nav>
+  </header>  
+
+  <nav>
+    <div class="container">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-primary all" data-type="gotta" title="click to reset filters">Gotta Catch 'Em All!</button>
+          </div>
+
+          <div class="col-sm-6">
+            <select id="type" class="browser-default custom-select" style="width:150px">
+              <option class="option-type" value="all" selected>Select type: All</option>
+              <option class="option-type" value="normal" data-value="0">Normal</option>
+              <option class="option-type" value="fire" data-value="1">Fire</option>
+              <option class="option-type" value="water" data-value="2">Water</option>
+              <option class="option-type" value="electric" data-value="3">Electric</option>
+              <option class="option-type" value="grass" data-value="4">Grass</option>
+              <option class="option-type" value="ice" data-value="5">Ice</option>
+              <option class="option-type" value="fighting" data-value="6">Fighting</option>
+              <option class="option-type" value="poison" data-value="7">Poison</option>
+              <option class="option-type" value="ground" data-value="8">Ground</option>
+              <option class="option-type" value="flying" data-value="9">Flying</option>
+              <option class="option-type" value="psychic" data-value="10">Psychic</option>
+              <option class="option-type" value="bug" data-value="11">Bug</option>
+              <option class="option-type" value="rock" data-value="12">Rock</option>
+              <option class="option-type" value="ghost" data-value="13">Ghost</option>
+              <option class="option-type" value="dragon" data-value="14">Dragon</option>
+              <option class="option-type" value="dark" data-value="15">Dark</option>
+              <option class="option-type" value="steel" data-value="16">Steel</option>
+              <option class="option-type" value="fairy" data-value="17">Fairy</option>
+            </select>
+          
+            <select id="sort" class="browser-default custom-select" style="width:200px">
+              <option selected>Sort by: ID</option>
+              <option value="attack"  >Attack</option>
+              <option value="defense" >Defense</option>
+              <option value="speed" >Speed</option>
+            </select>
+          </div>
+
+        </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="pokedex"></div>
+  </main>
+  
+  <div class="container">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-circle pg-blue">
+
+      </ul>
+    </nav>
+  </div>
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
